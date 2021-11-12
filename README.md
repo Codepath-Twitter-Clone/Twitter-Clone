@@ -80,7 +80,17 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
    * Main
 
 ## Wireframes
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0001.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0002.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0005.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0006.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0007.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0008.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0009.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0010.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0013.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0014.jpg" width=600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/Twitter%20UI%20Screens/0022.jpg" width=600>
 
 ## Schema 
 ### Models
