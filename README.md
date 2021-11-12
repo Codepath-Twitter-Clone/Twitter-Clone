@@ -25,8 +25,9 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 **Required Must-have Stories**
 
 * Following users
-* Uploading/liking tweets
-* Creating a user profile
+* Viewing tweets
+* Uploading/liking/commenting tweets
+* Creating/editing a user profile
 * Log-in/sign-up users
 
 **Optional Nice-to-have Stories**
@@ -37,12 +38,24 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Login
+   * Login
+* Signup
+   * Signup
+* Main
+   * Viewing tweets
+   * Following users
+   * liking tweets
+* Profile
+   * Creating/editing a user profile
+* Post
+   * Uploading tweets
+* Tweet
+   * Viewing tweets details
+   * Viewing tweets comments
+   * Commenting tweets
+   * Following users
+   * liking tweets
 
 ### 3. Navigation
 
@@ -51,12 +64,20 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Login
+   * Main
+* Signup
+   * Login
+* Main
+   * Post
+   * Profile
+   * Tweet
+* Profile
+   * Main
+* Post
+   * Tweet
+* Tweet
+   * Main
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
