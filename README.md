@@ -8,16 +8,15 @@
 
 ## Overview
 ### Description
-[Description of your app]
+The team is building an MVP version of Twitter with strictly Swift UI using the MVVM architecture. We will be building this completely from scratch, starting with the User Interface skeleton, and working our way up to integrating our API with Firebase and data models. We will be building all the core components of a social network. This includes following users, uploading/liking tweets, direct messaging, creating a user profile, and registering users.
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
-- **Category:**
-- **Mobile:**
-- **Story:**
-- **Market:**
-- **Habit:**
-- **Scope:**
+- Social
+- UI/UX for mobile iOS experience
+- A service for friends, family, and coworkers to stay connected through the exchange of quick, frequent messages
+- 353 million active users
+- Twitter audience most receptive, valuable for its influence, and brand conscious
+- Very mature technology
 
 ## Product Spec
 
@@ -25,13 +24,16 @@
 
 **Required Must-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* Following users
+* Uploading/liking tweets
+* Creating a user profile
+* Log-in/sign-up users
 
 **Optional Nice-to-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* Direct messaging
+* Search users
+* Recommendation system
 
 ### 2. Screen Archetypes
 
@@ -45,10 +47,7 @@
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
-
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* No tab navigation needed.
 
 **Flow Navigation** (Screen to Screen)
 
