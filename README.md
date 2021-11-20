@@ -129,16 +129,16 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 - Login
   - (Get) get user info
 - Signup
-  -(Post) post user info
+  - (Post) post user info
 - Main
-  -(Get) get main page tweets
+  - (Get) get main page tweets
 - Profile
-  -(Get) get user details
-  -(Post) modify user details
+  - (Get) get user details
+  - (Post) modify user details
 - Post
-  -(Post) post user tweet
+  - (Post) post user tweet
 - Tweet
-  -(Post) tweet interactions like liking, following, commenting
-  -(Delete) revert actions like liking, following
-  -(Get) get tweet details
+  - (Post) tweet interactions like liking, following, commenting
+  - (Delete) revert actions like liking, following
+  - (Get) get tweet details
 
