@@ -186,12 +186,7 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 - Main
   - (Get) get main page tweets
      ```swift
-      func fetchUserStats() {
-        guard let user = self.user else { return }
-        UserService.fetchUserStats(user: user) { stats in
-            self.user?.stats = stats
-        }
-      }
+
      ```
   - (Post) sign out
      ```swift
@@ -203,11 +198,107 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
      ```
 - Profile
   - (Get) get user details
+     ```swift
+      func fetchUserStats() {
+        guard let user = self.user else { return }
+        UserService.fetchUserStats(user: user) { stats in
+            self.user?.stats = stats
+        }
+      }
+     ```
   - (Post) modify user details
+     ```swift
+
+     ```
 - Post
   - (Post) post user tweet
+     ```swift
+    private func upload(caption: String, type: TweetUploadType) {
+        guard let user = AuthViewModel.shared.user else { return }
+        let docRef = documentReference(forUploadType: type)
+        
+        var data: [String: Any] = ["uid": user.id,
+                                   "caption": caption,
+                                   "fullname": user.fullname, "timestamp": Timestamp(date: Date()),
+                                   "username": user.username,
+                                   "profileImageUrl": user.profileImageUrl,
+                                   "likes": 0,
+                                   "id": docRef.documentID]
+        
+        switch type {
+        case .reply(let tweet):
+            data["replyingTo"] = tweet.username
+            
+            docRef.setData(data) { _ in
+                let userRepliesRef = COLLECTION_USERS.document(user.id).collection("user-replies").document(docRef.documentID)
+                userRepliesRef.setData(data) { _ in
+                    self.isPresented = false
+                    NotificationViewModel.uploadNotification(toUid: tweet.uid, type: .reply, tweet: tweet)
+                }
+            }
+        case .tweet:
+            docRef.setData(data) { _ in
+                self.isPresented = false 
+            }
+        }
+    }
+     ```
 - Tweet
   - (Post) tweet interactions like liking, following, commenting
+     ```swift
+    func likeTweet() {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        let tweetLikesRef = COLLECTION_TWEETS.document(tweet.id).collection("tweet-likes")
+        let userLikesRef = COLLECTION_USERS.document(uid).collection("user-likes")
+        
+        COLLECTION_TWEETS.document(tweet.id).updateData(["likes": tweet.likes + 1]) { _ in
+            tweetLikesRef.document(uid).setData([:]) { _ in
+                userLikesRef.document(self.tweet.id).setData([:]) { _ in
+                    self.didLike = true
+                    
+                    NotificationViewModel.uploadNotification(toUid: self.tweet.uid, type: .like, tweet: self.tweet)
+                }
+            }
+        }
+    }
+     ```
   - (Delete) revert actions like liking, following
+     ```swift
+    func unlikeTweet() {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        let tweetLikesRef = COLLECTION_TWEETS.document(tweet.id).collection("tweet-likes")
+        let userLikesRef = COLLECTION_USERS.document(uid).collection("user-likes")
+        
+        COLLECTION_TWEETS.document(tweet.id).updateData(["likes": tweet.likes - 1]) { _ in
+            tweetLikesRef.document(uid).delete { _ in
+                userLikesRef.document(self.tweet.id).delete { _ in
+                    self.didLike = false
+                    
+                    NotificationViewModel.deleteNotification(toUid: self.tweet.uid, type: .like, tweetId: self.tweet.id)
+                }
+            }
+        }
+    }
+     ```
   - (Get) get tweet details
+     ```swift
+        func fetchTweets() {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        var tweets = [Tweet]()
+        COLLECTION_USERS.document(uid).collection("user-feed").getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+                        
+            documents.forEach { document in
+                COLLECTION_TWEETS.document(document.documentID).getDocument { snapshot, _ in
+                    guard let data = snapshot?.data() else { return }
+                    tweets.append(Tweet(dictionary: data))
+                    
+                    if tweets.count == documents.count {
+                        self.tweets = tweets.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
+                    }
+                }
+            }
+        }
+    }
+     ```
 
