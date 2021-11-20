@@ -181,8 +181,8 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
                 }
             }
         }
-    }
-  ```
+      }
+    ```
 - Main
   - (Get) get main page tweets
      ```swift
