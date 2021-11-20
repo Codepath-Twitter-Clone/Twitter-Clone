@@ -81,8 +81,64 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 
 ## Schema 
 ### Models
-[Add table of models]
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | id                | String       | unique id for the user |
+   | username          | String       | username |
+   | profileImageUrl   | String       | URL to profile image |
+   | fullname          | String       | full name |
+   | email             | String       | email |
+   | stats             | UserStats    | user statistics |
+   | bio               | String       | bio |
+   | isFollowed        | Bool         | if the user is already followed |
+   | isCurrentUser     | Bool         | if this instance is current user |
+
+#### UserStats
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | followers           | Int   | number of followers |
+   | following           | Int   | number of owner's followings |
+
+#### Tweet
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | id                | String       | unique id for the user |
+   | username          | String       | username |
+   | profileImageUrl   | String       | URL to profile image |
+   | fullname          | String       | full name |
+   | caption           | String       | caption |
+   | likes             | Int          | user statistics |
+   | uid               | String       | unique id for the message |
+   | timeStamp         | TimeStamp    | time of tweet |
+   | replyingTo        | String       | receiver ID |
+
+#### Message
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | id                | String       | unique id for the message |
+   | user              | User         | user |
+   | toId              | String       | receiver ID |
+   | fromId            | String       | sender ID |
+   | isFromCurrentUser | Bool         | if sender is current user |
+   | timeStamp         | TimeStamp    | time of message |
+   
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+- Login
+  - (Get) get user info
+- Signup
+  -(Post) post user info
+- Main
+  -(Get) get main page tweets
+- Profile
+  -(Get) get user details
+  -(Post) modify user details
+- Post
+  -(Post) post user tweet
+- Tweet
+  -(Post) tweet interactions like liking, following, commenting
+  -(Delete) revert actions like liking, following
+  -(Get) get tweet details
+
