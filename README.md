@@ -185,14 +185,14 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
   ```
 - Main
   - (Get) get main page tweets
-  ```swift
+     ```swift
       func fetchUserStats() {
         guard let user = self.user else { return }
         UserService.fetchUserStats(user: user) { stats in
             self.user?.stats = stats
         }
-    }
-      ```
+      }
+     ```
   - (Post) sign out
 - Profile
   - (Get) get user details
