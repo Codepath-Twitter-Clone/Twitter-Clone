@@ -128,10 +128,72 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 ### Networking
 - Login
   - (Get) get user info
+  ```swift
+      func login(withEmail email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Failed to login: \(error.localizedDescription)")
+                return
+            }
+            
+            self.userSession = result?.user
+            self.fetchUser()
+        }
+    }
+  ```
 - Signup
   - (Post) post user info
+     ```swift
+func registerUser(email: String, password: String, username: String,
+                      fullname: String, profileImage: UIImage) {
+        
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
+        let filename = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child(filename)
+        
+        storageRef.putData(imageData, metadata: nil) { _, error in
+            if let error = error {
+                print("DEBUG: Failed to upload image \(error.localizedDescription)")
+                return
+            }
+                        
+            storageRef.downloadURL { url, _ in
+                guard let profileImageUrl = url?.absoluteString else { return }
+                
+                Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                    if let error = error {
+                        print("DEBUG: Error \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    guard let user = result?.user else { return }
+                    
+                    let data = ["email": email,
+                                "username": username.lowercased(),
+                                "fullname": fullname,
+                                "profileImageUrl": profileImageUrl,
+                                "uid": user.uid]
+                    
+                    Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                        self.userSession = user
+                        self.fetchUser()
+                    }
+                }
+            }
+        }
+    }
+  ```
 - Main
   - (Get) get main page tweets
+  ```swift
+      func fetchUserStats() {
+        guard let user = self.user else { return }
+        UserService.fetchUserStats(user: user) { stats in
+            self.user?.stats = stats
+        }
+    }
+      ```
+  - (Post) sign out
 - Profile
   - (Get) get user details
   - (Post) modify user details
