@@ -144,7 +144,7 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 - Signup
   - (Post) post user info
      ```swift
-func registerUser(email: String, password: String, username: String,
+        func registerUser(email: String, password: String, username: String,
                       fullname: String, profileImage: UIImage) {
         
         guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
