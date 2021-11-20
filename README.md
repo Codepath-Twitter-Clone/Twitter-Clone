@@ -186,7 +186,24 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 - Main
   - (Get) get main page tweets
      ```swift
-
+      func fetchTweets() {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        var tweets = [Tweet]()
+        COLLECTION_USERS.document(uid).collection("user-feed").getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+                        
+            documents.forEach { document in
+                COLLECTION_TWEETS.document(document.documentID).getDocument { snapshot, _ in
+                    guard let data = snapshot?.data() else { return }
+                    tweets.append(Tweet(dictionary: data))
+                    
+                    if tweets.count == documents.count {
+                        self.tweets = tweets.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
+                    }
+                }
+            }
+        }
+    }
      ```
   - (Post) sign out
      ```swift
@@ -206,10 +223,7 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
         }
       }
      ```
-  - (Post) modify user details
-     ```swift
 
-     ```
 - Post
   - (Post) post user tweet
      ```swift
@@ -282,22 +296,10 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
      ```
   - (Get) get tweet details
      ```swift
-        func fetchTweets() {
-        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
-        var tweets = [Tweet]()
-        COLLECTION_USERS.document(uid).collection("user-feed").getDocuments { snapshot, _ in
+      func fetchUserTweets() {
+        COLLECTION_TWEETS.whereField("uid", isEqualTo: user.id).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
-                        
-            documents.forEach { document in
-                COLLECTION_TWEETS.document(document.documentID).getDocument { snapshot, _ in
-                    guard let data = snapshot?.data() else { return }
-                    tweets.append(Tweet(dictionary: data))
-                    
-                    if tweets.count == documents.count {
-                        self.tweets = tweets.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
-                    }
-                }
-            }
+            self.userTweets = documents.map({ Tweet(dictionary: $0.data()) })
         }
     }
      ```
