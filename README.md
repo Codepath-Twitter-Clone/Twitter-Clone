@@ -194,6 +194,13 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
       }
      ```
   - (Post) sign out
+     ```swift
+      func signOut() {
+          userSession = nil
+          user = nil
+          try? Auth.auth().signOut()
+      }
+     ```
 - Profile
   - (Get) get user details
   - (Post) modify user details
