@@ -28,7 +28,7 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 * Viewing tweets
 * Uploading/liking/commenting tweets
 * Creating/editing a user profile
-* Log-in/sign-up users
+* [X]Log-in/sign-up users
 
 **Optional Nice-to-have Stories**
 
