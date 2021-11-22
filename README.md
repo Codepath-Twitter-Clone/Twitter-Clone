@@ -27,14 +27,14 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 * Following users
 * Viewing tweets
 * Uploading/liking/commenting tweets
-* Creating/editing a user profile
+* Implement user profile
 * [x] Log-in/sign-up users
+* Search users
 
 **Optional Nice-to-have Stories**
 
 * Direct messaging
-* Search users
-* Recommendation system
+* Edit user profile
 
 ### 2. Screen Archetypes
 
