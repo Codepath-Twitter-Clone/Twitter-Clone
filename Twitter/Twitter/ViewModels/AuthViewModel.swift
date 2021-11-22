@@ -2,9 +2,8 @@
 //  AuthViewModel.swift
 //  Twitter
 //
-//  Created by user204085 on 11/19/21.
+//  Created by user204085 on 11/21/21.
 //
-
 
 import SwiftUI
 import Firebase
@@ -107,4 +106,3 @@ class AuthViewModel: ObservableObject {
         }
     }
 }
-
