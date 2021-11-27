@@ -25,11 +25,11 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 **Required Must-have Stories**
 
 * Following users
-* Viewing tweets
+* [x] Viewing tweets
 * Uploading/liking/commenting tweets
-* Implement user profile
+* [x] Implement user profile
 * [x] Log-in/sign-up users
-* Search users
+* [x] Search users
 
 **Optional Nice-to-have Stories**
 
