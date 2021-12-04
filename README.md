@@ -24,9 +24,9 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 
 **Required Must-have Stories**
 
-* Following users
+* [x] Following users
 * [x] Viewing tweets
-* Uploading/liking/commenting tweets
+* [x] Uploading/liking/commenting tweets
 * [x] Implement user profile
 * [x] Log-in/sign-up users
 * [x] Search users
@@ -34,7 +34,7 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 **Optional Nice-to-have Stories**
 
 * Direct messaging
-* Edit user profile
+* [x] Edit user profile
 
 ### 2. Screen Archetypes
 
