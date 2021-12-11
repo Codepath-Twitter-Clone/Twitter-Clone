@@ -33,7 +33,7 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
 
 **Optional Nice-to-have Stories**
 
-* Direct messaging
+* [x] Direct messaging
 * [x] Edit user profile
 
 ### 2. Screen Archetypes
