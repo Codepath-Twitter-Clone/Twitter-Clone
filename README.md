@@ -304,3 +304,4 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
     }
      ```
 
+[img] https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P1.gif[/img]
