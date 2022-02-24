@@ -304,7 +304,7 @@ The team is building an MVP version of Twitter with strictly Swift UI using the 
     }
      ```
 
-<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P1.gif" width=400 height = 600>
-<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P2.gif" width=400 height = 600>
-<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P3.gif" width=400 height = 600>
-<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P4.gif" width=400 height = 600>
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P1.gif">
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P2.gif" >
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P3.gif" >
+<img src="https://github.com/Codepath-Twitter-Clone/Twitter-Clone/blob/main/P4.gif" >
